@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use Illuminate\Support\Str;
+
 class AuthController extends Controller
 {
     public function index(Request $request)
@@ -19,5 +22,25 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         return view('register');
+    }
+
+    public function register_post(Request $request)
+    {
+        $user = request()->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required_with:password|same:password|min:6'
+        ]);
+
+        // dd($request->all());
+        $user = new User;
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        $user->remember_token = Str::random(50);
+        $user->save();
+
+        return redirect('/')->with('success', 'Register successfully');
     }
 }

@@ -21,6 +21,8 @@
   </div>
   <!-- /.login-logo -->
   <div class="card">
+
+    @include('_messages')
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 

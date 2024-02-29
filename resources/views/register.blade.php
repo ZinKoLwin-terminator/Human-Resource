@@ -24,31 +24,44 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Register</p>
 
-      <form action="" method="post">
+      <form action="{{url("register_post")}}" method="post">
+        {{ csrf_field() }}
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Name">
+            <input type="text" class="form-control" placeholder="Name" name="name" required value="{{old('name')}}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
               </div>
             </div>
           </div>
+          <span  style="color: red;">{{$errors->first('name')}}</span>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" name="email" required value="{{old('email')}}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+        <span  style="color: red;">{{$errors->first('email')}}</span>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <span  style="color: red;">{{$errors->first('password')}}</span>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirm_password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <span  style="color: red;">{{$errors->first('confirm_password')}}</span>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
