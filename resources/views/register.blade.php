@@ -36,7 +36,8 @@
           </div>
           <span  style="color: red;">{{$errors->first('name')}}</span>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="email" required value="{{old('email')}}" onblur="duplicateEmail(this)">
+          <input type="email" class="form-control" placeholder="Email" name="email" required value="{{old('email')}}"
+            onblur="duplicateEmail(this)">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

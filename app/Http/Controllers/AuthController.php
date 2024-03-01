@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -52,6 +53,19 @@ class AuthController extends Controller
             return response()->json(array("exists" => true));
         } else {
             return response()->json(array("exists" => false));
+        }
+    }
+    public function login_post(Request $request)
+    {
+        // dd($request->all());
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
+            if (Auth::User()->is_role == '1') {
+                return redirect()->intended('admin/dashboard');
+            } else {
+                return redirect('/')->with('error', 'No HR Availbles... Please check');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Please enter the correct credentials');
         }
     }
 }
