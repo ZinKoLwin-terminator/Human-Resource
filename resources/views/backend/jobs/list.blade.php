@@ -8,10 +8,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6" >
-            <h1>Employees</h1>
+            <h1>Jobs</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right">
-            <a href="{{url("admin/employees/add")}}" class="btn btn-primary mb-2">Add Employees</a>
+            <a href="{{url("admin/jobs/add")}}" class="btn btn-primary mb-2">Add Jobs</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -41,27 +41,30 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="">First Name</label>
+                                    <label for="">Job Title</label>
                                     <input type="text"
-                                    value="{{Request()->name}}" name="name" class="form-control"
-                                    placeholder="First Name">
+                                    value="{{Request()->job_title}}" name="job_title" class="form-control"
+                                    placeholder="Job Title">
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="">Last Name</label>
-                                    <input type="text" name="last_name" value="{{Request()->last_name}}" class="form-control"
-                                    placeholder="Last Name">
+                                    <label for="">Min Salary</label>
+                                    <input type="text"
+                                    value="{{Request()->min_salary}}" name="min_salary" class="form-control"
+                                    placeholder="Min Salary">
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="">Email ID</label>
-                                    <input type="email" name="email" value="{{Request()->email}}" class="form-control"
-                                    placeholder="Email ID">
+                                    <label for="">Max Salary</label>
+                                    <input type="text"
+                                    value="{{Request()->max_salary}}" name="max_salary" class="form-control"
+                                    placeholder="Max Salary">
                                 </div>
+
 
                                 <div class="form-group col-md-2">
                                     <button type="submit"   class="btn btn-primary" style="margin-top: 30px;">Search</button>
-                                    <a href="{{url("admin/employees")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
+                                    <a href="{{url("admin/jobs")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
                                 </div>
 
 
@@ -73,7 +76,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Employees List
+                                Jobs List
                             </h3>
                         </div>
                         <div class="card-body p-0" >
@@ -81,11 +84,11 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
-                                        <th>Is Role</th>
-                                        <th>
+                                        <th>Job Title</th>
+                                        <th>Min Salary</th>
+                                        <th>Max Salary</th>
+                                        <th>Created At</th>
+                                       <th>
                                             Actions
                                         </th>
                                     </tr>
@@ -94,14 +97,14 @@
                                     @forelse($getRecord as $value)
                                     <tr>
                                         <td>{{$value->id}}</td>
-                                        <td>{{$value->name}}</td>
-                                        <td>{{$value->last_name}}</td>
-                                        <td>{{$value->email}}</td>
-                                        <td>{{!empty($value->is_role)?'HR':'Employees'}}</td>
+                                        <td>{{$value->job_title}}</td>
+                                        <td>{{$value->min_salary}}</td>
+                                        <td>{{$value->max_salary}}</td>
+                                        <td>{{$value->created_at}}</td>
                                         <td>
-                                            <a href="{{url('admin/employees/view/'.$value->id)}}" class="btn btn-info">View</a>
-                                            <a href="{{url('admin/employees/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                                            <a href="{{url('admin/employees/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                                            <a href="{{url('admin/jobs/view/'.$value->id)}}" class="btn btn-info">View</a>
+                                            <a href="{{url('admin/jobs/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{url('admin/jobs/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @empty
@@ -113,8 +116,10 @@
                             </table>
 
                             <div style="padding:10px;float:right;">
-                                {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links()!!}
+                                {{$getRecord->links()}}
                             </div>
+
+
 
                         </div>
                     </div>
