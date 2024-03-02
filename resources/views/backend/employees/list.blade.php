@@ -22,7 +22,9 @@
     <!-- /.content-header -->
     <section class="content">
         <div class="container-fluid">
+
             @include('_messages')
+
             <a href="{{url("admin/employees/add")}}" class="btn btn-primary mb-2">Add Employees</a>
             <div class="row">
                 <section class="col-lg-12">
