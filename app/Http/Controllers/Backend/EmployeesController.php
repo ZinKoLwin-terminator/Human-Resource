@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Job;
 
 class EmployeesController extends Controller
 {
@@ -14,10 +15,10 @@ class EmployeesController extends Controller
         return view('backend.employees.list', $data);
     }
 
-    public function add(Request $request)
+    public function add()
     {
-
-        return view('backend.employees.add');
+        $data["getJobs"] = Job::get();
+        return view('backend.employees.add', $data);
     }
 
     public function add_post(Request $request)
@@ -61,6 +62,7 @@ class EmployeesController extends Controller
     public function edit($id, Request $request)
     {
         $data["getRecord"] = User::find($id);
+        $data["getJobs"] = Job::get();
         return view('backend.employees.edit', $data);
     }
 

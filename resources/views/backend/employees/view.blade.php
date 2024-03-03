@@ -78,7 +78,10 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label">Job ID<span style="color:red"></span></label>
                                 <div class="col-sm-10 mt-1">
-                                    {{$getRecord->job_id}}
+                                    {{-- @foreach ($getJobs as $job)
+                                        {{($job->id==$getRecord->job_id)?"$job->job_title":" "}}
+                                    @endforeach --}}
+            {{!empty($getRecord->get_job_single->job_title)?$getRecord->get_job_single->job_title:""}}
                                 </div>
                             </div>
 
