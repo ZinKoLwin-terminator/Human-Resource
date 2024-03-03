@@ -100,7 +100,7 @@
                                         <td>{{$value->job_title}}</td>
                                         <td>{{$value->min_salary}}</td>
                                         <td>{{$value->max_salary}}</td>
-                                        <td>{{$value->created_at}}</td>
+                                        <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td>
                                         <td>
                                             <a href="{{url('admin/jobs/view/'.$value->id)}}" class="btn btn-info">View</a>
                                             <a href="{{url('admin/jobs/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
