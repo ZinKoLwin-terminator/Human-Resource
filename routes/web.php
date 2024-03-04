@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EmployeesController;
 use App\Http\Controllers\Backend\JobsController;
+use App\Http\Controllers\Backend\JobHistoryController;
 
 
 // Route::get('/', function () {
@@ -40,6 +41,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/jobs/edit/{id}', [JobsController::class, 'update']);
     Route::get('admin/jobs/delete/{id}', [JobsController::class, 'delete']);
     Route::get('admin/jobs_export', [JobsController::class, 'jobs_export']);
+
+    //jog history
+
+    Route::get('admin/job_history', [JobHistoryController::class, 'index']);
+
+    Route::get('admin/job_history/add', [JobHistoryController::class, 'add']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
