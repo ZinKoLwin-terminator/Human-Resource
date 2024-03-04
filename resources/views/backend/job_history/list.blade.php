@@ -12,7 +12,6 @@
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right">
 
-
             <a href="{{url("admin/job_history/add")}}" class="btn btn-primary mb-2">Add Job History</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -21,17 +20,57 @@
     <!-- /.content-header -->
 
 
+
+
     <section class="content">
         <div class="container-fluid">
            <div class="row">
                 <section class="col-md-12">
 
-                   {{-- <div class="card">
+                   <div class="card">
                     <div class="card-header">
-
+                        <h3 class="card_title">Search Jobs History List</h3>
                     </div>
 
-                   </div> --}}
+                    <form action="" method="get">
+                           <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="">ID</label>
+                                    <input type="text" class="form-control" name="id" value="{{request()->id}}" placeholder="ID">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Employee Name</label>
+                                    <input type="text" class="form-control" name="name" value="{{request()->name}}" placeholder="Employee Name">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Start Date</label>
+                                    <input type="date" class="form-control" value="{{request()->start_date}}" name="start_date">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">End Date</label>
+                                    <input type="date" class="form-control" value="{{request()->end_date}}" name="end_date">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Job Title</label>
+                                    <input type="text" class="form-control" value="{{request()->job_title}}" name="job_title"
+                                    placeholder="Job Title">
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <button class="btn btn-primary" type="submit" style="margin-top: 30px;">Search</button>
+                                    <a href="{{url('admin/job_history')}}" class="btn btn-success" style="margin-top: 30px">Reset</a>
+                                </div>
+
+
+                            </div>
+                           </div>
+                    </form>
+                   </div>
 
                     @include('_messages')
                     <div class="card">
