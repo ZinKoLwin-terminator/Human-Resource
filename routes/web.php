@@ -39,6 +39,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/jobs/edit/{id}', [JobsController::class, 'edit']);
     Route::post('admin/jobs/edit/{id}', [JobsController::class, 'update']);
     Route::get('admin/jobs/delete/{id}', [JobsController::class, 'delete']);
+    Route::get('admin/jobs_export', [JobsController::class, 'jobs_export']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
