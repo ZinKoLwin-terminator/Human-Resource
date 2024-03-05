@@ -91,9 +91,9 @@
                                         <th>Department Name <br>
                                             (department_id)</th>
                                         <th>Created At</th>
-                                       {{-- <th>
+                                       <th>
                                             Actions
-                                        </th> --}}
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -110,11 +110,11 @@
                                         BDM Department
                                     @endif</td>
                                     <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
-                                    {{-- <td>
-                                        <a href="{{url('admin/job_history/view/'.$value->id)}}" class="btn btn-info">View</a>
+                                    <td>
+                                        {{-- <a href="{{url('admin/job_history/view/'.$value->id)}}" class="btn btn-info">View</a> --}}
                                         <a href="{{url('admin/job_history/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
                                         <a href="{{url('admin/job_history/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
-                                    </td> --}}
+                                    </td>
                                    </tr>
                                    @empty
                                    <tr>
