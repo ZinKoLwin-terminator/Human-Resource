@@ -116,7 +116,7 @@
                                         <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
                                         <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td>
                                         <td>
-                                            <a href="{{url('admin/job_grades/view/'.$value->id)}}" class="btn btn-info">View</a>
+                                            {{-- <a href="{{url('admin/job_grades/view/'.$value->id)}}" class="btn btn-info">View</a> --}}
                                             <a href="{{url('admin/job_grades/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
                                             <a href="{{url('admin/job_grades/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                                         </td>
