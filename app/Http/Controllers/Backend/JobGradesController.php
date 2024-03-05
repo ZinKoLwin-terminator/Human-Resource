@@ -10,8 +10,8 @@ class JobGradesController extends Controller
 {
     public function index(Request $request)
     {
-        // $data['getRecord'] = JobGrade::getRecord($request);
-        return view('backend.job_grades.list');
+        $data['getRecord'] = JobGrade::getRecord($request);
+        return view('backend.job_grades.list', $data);
     }
 
     public function add(Request $request)
