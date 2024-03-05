@@ -15,7 +15,7 @@ class JobHistory extends Model
     {
         // $return = self::select('job_history.*')
 
-        $return = self::select('job_history.*', 'users.name', 'jobs.job_title')->join('users', 'users.id', '=', 'job_history.employee_id')->join('jobs', 'jobs.id', '=', 'job_history.job_id')->orderBy('job_history.id', 'desc');
+        $return = self::select('job_history.*', 'users.name', 'jobs.job_title', 'users.last_name')->join('users', 'users.id', '=', 'job_history.employee_id')->join('jobs', 'jobs.id', '=', 'job_history.job_id')->orderBy('job_history.id', 'desc');
 
         if (!empty(Request::get('id'))) {
             $return = $return->where('job_history.id', '=', Request::get('id'));
@@ -25,14 +25,26 @@ class JobHistory extends Model
             $return = $return->where('users.name', 'like', '%' . Request::get('name') . '%');
         }
 
+        if (!empty(Request::get('start_date'))) {
+            $return = $return->where('job_history.start_date', '=', Request::get('start_date'));
+        }
 
-        if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
-            $return = $return->where('job_history.created_at', '>=', Request::get('start_date'))->where('job_history.created_at', '<=', Request::get('end_date'));
+        if (!empty(Request::get('end_date'))) {
+            $return = $return->where('job_history.end_date', '=', Request::get('end_date'));
         }
 
         if (!empty(Request::get('job_title'))) {
             $return = $return->where('jobs.job_title', 'like', '%' . Request::get('job_title') . '%');
         }
+
+        // if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
+        //     $return = $return->where('job_history.start_date', '>=', Request::get('start_date'))->where('job_history.end_date', '<=', Request::get('end_date'));
+        // }
+
+        if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
+            $return = $return->whereBetween('job_history.start_date', [Request::get('start_date'), Request::get('end_date')]);
+        }
+
 
 
         $return = $return->paginate(20);
