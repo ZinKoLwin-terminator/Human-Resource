@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="{{url("public/backend/plugins/daterangepicker/daterangepicker.css")}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{url("public/backend/plugins/summernote/summernote-bs4.min.css")}}">
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
