@@ -92,6 +92,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/locations/edit/{id}', [LocationController::class, 'edit']);
     Route::post('admin/locations/edit/{id}', [LocationController::class, 'update']);
     Route::get('admin/locations/delete/{id}', [LocationController::class, 'delete']);
+    Route::get('admin/locations_export', [LocationController::class, 'locations_export']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
