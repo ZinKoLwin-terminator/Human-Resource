@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\JobHistoryController;
 use App\Http\Controllers\Backend\JobGradesController;
 use App\Http\Controllers\Backend\RegionsController;
 use App\Http\Controllers\Backend\CountriesController;
+use App\Http\Controllers\Backend\LocationController;
 
 
 // Route::get('/', function () {
@@ -82,6 +83,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/countries/edit/{id}', [CountriesController::class, 'update']);
     Route::get('admin/countries/delete/{id}', [CountriesController::class, 'delete']);
     Route::get('admin/countries_export', [CountriesController::class, 'countries_export']);
+
+    //Location
+    Route::get('admin/locations', [LocationController::class, 'index']);
+    Route::get('admin/locations/add', [LocationController::class, 'add']);
+
+    Route::post('admin/locations/add', [LocationController::class, 'add_post']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
