@@ -34,10 +34,10 @@
            <div class="row">
                 <section class="col-md-12">
                    <div class="card">
-                    {{-- <div class="card-header">
-                       <h3 class="card-title">Search</h3>
-                    </div> --}}
-                    {{-- <form action="" method="get">
+                    <div class="card-header">
+                       <h3 class="card-title">Search Location</h3>
+                    </div>
+                    <form action="" method="get">
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-3">
@@ -47,23 +47,52 @@
                                     placeholder="ID">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Job Title</label>
+                                    <label for="">Street Address</label>
                                     <input type="text"
-                                    value="{{Request()->job_title}}" name="job_title" class="form-control"
-                                    placeholder="Job Title">
+                                    value="{{Request()->street_address}}" name="street_address" class="form-control"
+                                    placeholder="Street Address">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Min Salary</label>
+                                    <label for="">Postal Code</label>
                                     <input type="text"
-                                    value="{{Request()->min_salary}}" name="min_salary" class="form-control"
-                                    placeholder="Min Salary">
+                                    value="{{Request()->postal_code}}" name="postal_code" class="form-control"
+                                    placeholder="Postal Code">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Max Salary</label>
+                                    <label for="">City</label>
                                     <input type="text"
-                                    value="{{Request()->max_salary}}" name="max_salary" class="form-control"
-                                    placeholder="Max Salary">
+                                    value="{{Request()->city}}" name="city" class="form-control"
+                                    placeholder="City">
                                 </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">State Provice</label>
+                                    <input type="text"
+                                    value="{{Request()->state_provice}}" name="state_provice" class="form-control"
+                                    placeholder="State Provice">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Countries Name</label>
+                                    <input type="text"
+                                    value="{{Request()->country_name}}" name="country_name" class="form-control"
+                                    placeholder="Countries Name">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Created At</label>
+                                    <input type="date"
+                                    value="{{Request()->created_at}}" name="created_at" class="form-control"
+                                   >
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Updated At</label>
+                                    <input type="date"
+                                    value="{{Request()->updated_at}}" name="updated_at" class="form-control"
+                                   >
+                                </div>
+
                                 <div class="form-group col-md-3">
                                     <label for="">From Date(Start Date)</label>
                                     <input type="date"
@@ -78,11 +107,11 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <button type="submit"   class="btn btn-primary" style="margin-top: 30px;">Search</button>
-                                    <a href="{{url("admin/jobs")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
+                                    <a href="{{url("admin/locations")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
                                 </div>
                             </div>
                         </div>
-                    </form> --}}
+                    </form>
                    </div>
                     @include('_messages')
                     <div class="card">
@@ -116,7 +145,7 @@
                                         <td>{{$value->postal_code}}</td>
                                         <td>{{$value->city }}</td>
                                         <td>{{$value->state_provice }}</td>
-                                        <td>{{$value->country->country_name }}</td>
+                                        <td>{{$value->country_name }}/{{$value->countries_id }}</td>
                                         <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
                                         <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td>
                                         <td>
@@ -133,9 +162,9 @@
                                 </tbody>
                             </table>
 
-                            {{-- <div style="padding:10px;float:right;">
+                            <div style="padding:10px;float:right;">
                                 {{$getRecord->links()}}
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </section>
