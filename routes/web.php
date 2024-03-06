@@ -78,6 +78,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/countries', [CountriesController::class, 'index']);
     Route::get('admin/countries/add', [CountriesController::class, 'add']);
     Route::post('admin/countries/add', [CountriesController::class, 'add_post']);
+    Route::get('admin/countries/edit/{id}', [CountriesController::class, 'edit']);
+    Route::post('admin/countries/edit/{id}', [CountriesController::class, 'update']);
+    Route::get('admin/countries/delete/{id}', [CountriesController::class, 'delete']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);

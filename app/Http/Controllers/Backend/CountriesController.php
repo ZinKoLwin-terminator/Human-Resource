@@ -36,4 +36,33 @@ class CountriesController extends Controller
 
         return redirect('admin/countries')->with('success', 'Countries successfully created');
     }
+
+
+    public function edit($id, Request $request)
+    {
+        $data['getRecord'] = Country::find($id);
+        $data['getRegions'] = Region::get();
+        return view('backend.countries.edit', $data);
+    }
+    public function update($id, Request $request)
+    {
+        $country = request()->validate([
+            'country_name' => 'required',
+            'regions_id' => 'required'
+        ]);
+        $country = Country::find($id);
+        $country->country_name = $request->country_name;
+        $country->regions_id = $request->regions_id;
+        $country->save();
+
+        return redirect('admin/countries')->with('success', 'Countries successfully updated');
+    }
+
+    public function delete($id)
+    {
+        $delete_country = Country::find($id);
+        $delete_country->delete();
+
+        return redirect()->back()->with("error", "Countries Successfully Deleted!");
+    }
 }

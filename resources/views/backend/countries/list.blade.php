@@ -32,14 +32,15 @@
         <div class="container-fluid">
            <div class="row">
                 <section class="col-md-12">
-                   {{-- <div class="card">
+                    {{-- Search Box End --}}
+                 <div class="card">
                     <div class="card-header">
                        <h3 class="card-title">Search Countries</h3>
                     </div>
                     <form action="" method="get">
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-1">
                                     <label for="">ID</label>
                                     <input type="text" name="id" class="form-control"
                                     value="{{Request()->id}}"
@@ -54,18 +55,20 @@
                                 <div class="form-group col-md-3">
                                     <label for="">Region Name</label>
                                     <input type="text"
-                                    value="{{Request()->regions_id}}" name="regions_id" class="form-control"
+                                    value="{{Request()->region_name}}" name="region_name" class="form-control"
                                     placeholder="Region Name">
                                 </div>
 
                                 <div class="form-group col-md-2">
                                     <button type="submit"   class="btn btn-primary" style="margin-top: 30px;">Search</button>
-                                    <a href="{{url("admin/regions")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
+                                    <a href="{{url("admin/countries")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
                                 </div>
                             </div>
                         </div>
                     </form>
-                   </div> --}}
+                   </div>
+
+                 {{-- Search Box End --}}
                     @include('_messages')
                     <div class="card">
                         <div class="card-header">
