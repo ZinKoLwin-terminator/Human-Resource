@@ -150,8 +150,8 @@
                                         <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td>
                                         <td>
 
-                                            <a href="{{url('admin/jobs/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                                            <a href="{{url('admin/jobs/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                                            <a href="{{url('admin/locations/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                                            <a href="{{url('admin/locations/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @empty
