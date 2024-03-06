@@ -12,14 +12,15 @@
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right">
 
-            {{-- <form action="{{url('admin/jobs_export')}}" method="get">
+            <form action="{{url('admin/countries_export')}}" method="get">
                 <input type="hidden" name="start_date" value="{{Request()->start_date}}">
 
                 <input type="hidden" name="end_date" value="{{Request()->end_date}}">
 
-                <a href="{{url('admin/jobs_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date'))}}" class="btn btn-success">Excel Export</a>
-            </form> --}}
-            {{-- <br> --}}
+                <a href="{{url('admin/countries_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date'))}}" class="btn btn-success">Excel Export</a>
+            </form>
+
+            <br>
             <a href="{{url("admin/countries/add")}}" class="btn btn-primary mb-2">Add Countries</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -40,23 +41,36 @@
                     <form action="" method="get">
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label for="">ID</label>
                                     <input type="text" name="id" class="form-control"
                                     value="{{Request()->id}}"
                                     placeholder="ID">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="">Country Name</label>
                                     <input type="text"
                                     value="{{Request()->country_name}}" name="country_name" class="form-control"
                                     placeholder="Country Name">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="">Region Name</label>
                                     <input type="text"
                                     value="{{Request()->region_name}}" name="region_name" class="form-control"
                                     placeholder="Region Name">
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="">From Date(Start Date)</label>
+                                    <input type="date"
+                                    value="{{Request()->start_date}}" name="start_date" class="form-control"
+                                   >
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">To Date(End Date)</label>
+                                    <input type="date"
+                                    value="{{Request()->end_date}}" name="end_date" class="form-control"
+                                   >
                                 </div>
 
                                 <div class="form-group col-md-2">

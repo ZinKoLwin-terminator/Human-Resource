@@ -59,12 +59,6 @@
                                 value="{{old('highest_sal')}}" class="form-control" required placeholder="Enter Highest Sal">
                             </div>
                         </div>
-
-
-
-
-
-
                        </div>
 
                        <div class="card-footer">

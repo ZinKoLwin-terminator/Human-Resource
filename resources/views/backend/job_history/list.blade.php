@@ -14,11 +14,8 @@
 
             <form action="{{url("admin/job_history_export")}}" method="GET">
                 <input type="hidden" name="start_date" value="{{Request()->start_date}}">
-
                 <input type="hidden" name="end_date" value="{{Request()->end_date}}">
-
                 <a href="{{url('admin/job_history_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date'))}}" class="btn btn-success">Excel Export</a>
-
             </form>
             <br>
             <a href="{{url("admin/job_history/add")}}" class="btn btn-primary mb-2">Add Job History</a>
