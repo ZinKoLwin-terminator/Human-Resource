@@ -120,7 +120,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{url("admin/locations")}}" class="nav-link @if(Request::segment(2)=='locations') active @endif"">
+            <a href="{{url("admin/locations")}}" class="nav-link @if(Request::segment(2)=='locations') active @endif">
               <i class="nav-icon fa fa-map-marker-alt"></i>
               <p>
                 Locations
@@ -130,13 +130,25 @@
 
 
           <li class="nav-item">
-            <a href="{{url("admin/departments")}}" class="nav-link @if(Request::segment(2)=='departments') active @endif"">
+            <a href="{{url("admin/departments")}}" class="nav-link @if(Request::segment(2)=='departments') active @endif">
               <i class="nav-icon fa fa-building"></i>
               <p>
                 Department
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url("admin/manager")}}" class="nav-link @if(Request::segment(2)=='manager') active @endif">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Manager
+              </p>
+            </a>
+          </li>
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

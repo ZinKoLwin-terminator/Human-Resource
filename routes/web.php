@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\RegionsController;
 use App\Http\Controllers\Backend\CountriesController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\DepartmentsController;
+use App\Http\Controllers\Backend\ManagerController;
 
 
 // Route::get('/', function () {
@@ -106,6 +107,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/departments/delete/{id}', [DepartmentsController::class, 'delete']);
 
     Route::get('admin/departments_export', [DepartmentsController::class, 'departments_export']);
+
+    //Manager
+    Route::get('admin/manager', [ManagerController::class, 'index']);
+    Route::get('admin/manager/add', [ManagerController::class, 'add']);
+
+    Route::post('admin/manager/add', [ManagerController::class, 'add_post']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
