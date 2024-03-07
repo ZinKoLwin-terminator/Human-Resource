@@ -38,9 +38,9 @@ class Department extends Model
         //     $return = $return->where('max_salary', "like", "%" . Request::get("max_salary") . "%");
         // }
 
-        // if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
-        //     $return = $return->where('jobs.created_at', '>=', Request::get('start_date'))->where('jobs.created_at', '<=', Request::get('end_date'));
-        // }
+        if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
+            $return = $return->where('departments.created_at', '>=', Request::get('start_date'))->where('departments.created_at', '<=', Request::get('end_date'));
+        }
         //search box end
         $return = $return->paginate(20);
         return $return;

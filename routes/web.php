@@ -104,6 +104,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/departments/edit/{id}', [DepartmentsController::class, 'update']);
 
     Route::get('admin/departments/delete/{id}', [DepartmentsController::class, 'delete']);
+
+    Route::get('admin/departments_export', [DepartmentsController::class, 'departments_export']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
