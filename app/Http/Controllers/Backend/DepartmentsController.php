@@ -32,11 +32,43 @@ class DepartmentsController extends Controller
         ]);
 
         $user = new Department;
-        $user->department_name = $request->department_name;
-        $user->manager_id = $request->manager_id;
-        $user->locations_id = $request->locations_id;
+        $user->department_name = trim($request->department_name);
+        $user->manager_id = trim($request->manager_id);
+        $user->locations_id = trim($request->locations_id);
         $user->save();
 
         return redirect("admin/departments")->with("success", "Department successfully created");
+    }
+
+    public function edit($id)
+    {
+        $data['getLocations'] = Location::get();
+        $data['getRecord'] = Department::find($id);
+        return view('backend.departments.edit', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+        $user = request()->validate([
+            'department_name' => 'required',
+            'manager_id' => 'required',
+            'locations_id' => 'required',
+        ]);
+
+        $user = Department::find($id);
+        $user->department_name = trim($request->department_name);
+        $user->manager_id = trim($request->manager_id);
+        $user->locations_id = trim($request->locations_id);
+        $user->save();
+
+        return redirect("admin/departments")->with("success", "Department successfully updated");
+    }
+
+    public function delete($id)
+    {
+        $delete = Department::find($id);
+        $delete->delete();
+
+        return redirect()->back()->with("error", "Department successfully deleted!");
     }
 }
