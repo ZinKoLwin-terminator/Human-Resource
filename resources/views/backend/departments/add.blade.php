@@ -52,7 +52,7 @@
                                 name="manager_id" id="">
                              <option value="">Select Manager Name</option>
                             <option value="1">Mg Mg</option>
-                            <option value="1">Zaw Zaw</option>
+                            <option value="2">Zaw Zaw</option>
 
                             {{-- @foreach ($getRegions as $region)
                                 <option value="{{$region->id}}">{{$region->region_name}}</option>

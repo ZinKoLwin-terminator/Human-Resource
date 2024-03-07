@@ -34,9 +34,9 @@
            <div class="row">
                 <section class="col-md-12">
                     {{-- Search Box End --}}
-                 {{-- <div class="card">
+                 <div class="card">
                     <div class="card-header">
-                       <h3 class="card-title">Search Countries</h3>
+                       <h3 class="card-title">Search Department</h3>
                     </div>
                     <form action="" method="get">
                         <div class="card-body">
@@ -48,19 +48,26 @@
                                     placeholder="ID">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="">Country Name</label>
+                                    <label for="">Department Name</label>
                                     <input type="text"
-                                    value="{{Request()->country_name}}" name="country_name" class="form-control"
-                                    placeholder="Country Name">
+                                    value="{{Request()->department_name}}" name="department_name" class="form-control"
+                                    placeholder="Department Name">
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">Region Name</label>
+                                {{-- <div class="form-group col-md-3">
+                                    <label for="">Manager Name</label>
                                     <input type="text"
-                                    value="{{Request()->region_name}}" name="region_name" class="form-control"
-                                    placeholder="Region Name">
-                                </div>
+                                    value="{{Request()->manager_name}}" name="manager_name" class="form-control"
+                                    placeholder="Manager Name">
+                                </div> --}}
 
                                 <div class="form-group col-md-4">
+                                    <label for="">Location Name</label>
+                                    <input type="text"
+                                    value="{{Request()->street_address}}" name="street_address" class="form-control"
+                                    placeholder="Location Name">
+                                </div>
+
+                                {{-- <div class="form-group col-md-4">
                                     <label for="">From Date(Start Date)</label>
                                     <input type="date"
                                     value="{{Request()->start_date}}" name="start_date" class="form-control"
@@ -71,16 +78,16 @@
                                     <input type="date"
                                     value="{{Request()->end_date}}" name="end_date" class="form-control"
                                    >
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group col-md-2">
                                     <button type="submit"   class="btn btn-primary" style="margin-top: 30px;">Search</button>
-                                    <a href="{{url("admin/countries")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
+                                    <a href="{{url("admin/departments")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
                                 </div>
                             </div>
                         </div>
                     </form>
-                   </div> --}}
+                   </div>
 
                  {{-- Search Box End --}}
                     @include('_messages')
@@ -110,8 +117,14 @@
                                     <tr>
                                         <td>{{$value->id}}</td>
                                         <td>{{$value->department_name}}</td>
-                                        <td>{{$value->manager_name}}</td>
-                                        <td>{{$value->location->street_address}}</td>
+                                        <td>
+                                            @if ($value->manager_id==1)
+                                                Mg Mg
+                                            @else
+                                                Zaw Zaw
+                                            @endif
+                                        </td>
+                                        <td>{{$value->street_address}}</td>
 
                                         <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
                                         <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td>
@@ -129,9 +142,9 @@
                                 </tbody>
                             </table>
 
-                            {{-- <div style="padding:10px;float:right;">
+                            <div style="padding:10px;float:right;">
                                 {{$getRecord->links()}}
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </section>
