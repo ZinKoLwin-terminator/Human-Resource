@@ -34,86 +34,47 @@ manager list
         <div class="container-fluid">
            <div class="row">
                 <section class="col-md-12">
-                   {{-- <div class="card">
+                   <div class="card">
                     <div class="card-header">
-                       <h3 class="card-title">Search Location</h3>
+                       <h3 class="card-title">Search Manager</h3>
                     </div>
                     <form action="" method="get">
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-1">
                                     <label for="">ID</label>
                                     <input type="text" name="id" class="form-control"
                                     value="{{Request()->id}}"
                                     placeholder="ID">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Street Address</label>
+                                    <label for="">Manager Name</label>
                                     <input type="text"
-                                    value="{{Request()->street_address}}" name="street_address" class="form-control"
-                                    placeholder="Street Address">
+                                    value="{{Request()->manager_name}}" name="manager_name" class="form-control"
+                                    placeholder="Manager Name">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Postal Code</label>
-                                    <input type="text"
-                                    value="{{Request()->postal_code}}" name="postal_code" class="form-control"
-                                    placeholder="Postal Code">
+                                    <label for="">Manager Email</label>
+                                    <input type="email"
+                                    value="{{Request()->postal_code}}" name="manager_email" class="form-control"
+                                    placeholder="Manager Email">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">City</label>
-                                    <input type="text"
-                                    value="{{Request()->city}}" name="city" class="form-control"
-                                    placeholder="City">
+                                    <label for="">Manager Phone</label>
+                                    <input type="number"
+                                    value="{{Request()->manager_mobile}}" name="manager_mobile" class="form-control"
+                                    placeholder="Manager Phone">
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="">State Provice</label>
-                                    <input type="text"
-                                    value="{{Request()->state_provice}}" name="state_provice" class="form-control"
-                                    placeholder="State Provice">
-                                </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="">Countries Name</label>
-                                    <input type="text"
-                                    value="{{Request()->country_name}}" name="country_name" class="form-control"
-                                    placeholder="Countries Name">
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="">Created At</label>
-                                    <input type="date"
-                                    value="{{Request()->created_at}}" name="created_at" class="form-control"
-                                   >
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="">Updated At</label>
-                                    <input type="date"
-                                    value="{{Request()->updated_at}}" name="updated_at" class="form-control"
-                                   >
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="">From Date(Start Date)</label>
-                                    <input type="date"
-                                    value="{{Request()->start_date}}" name="start_date" class="form-control"
-                                   >
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="">To Date(End Date)</label>
-                                    <input type="date"
-                                    value="{{Request()->end_date}}" name="end_date" class="form-control"
-                                   >
-                                </div>
                                 <div class="form-group col-md-2">
                                     <button type="submit"   class="btn btn-primary" style="margin-top: 30px;">Search</button>
-                                    <a href="{{url("admin/locations")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
+                                    <a href="{{url("admin/manager")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
                                 </div>
                             </div>
                         </div>
                     </form>
-                   </div> --}}
+                   </div>
                     @include('_messages')
                     <div class="card">
                         <div class="card-header">

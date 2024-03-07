@@ -33,11 +33,38 @@ class ManagerController extends Controller
 
         $manager = new Manager;
 
-        $manager->manager_name = $request->manager_name;
-        $manager->manager_email = $request->manager_email;
-        $manager->manager_mobile = $request->manager_mobile;
+        $manager->manager_name = trim($request->manager_name);
+        $manager->manager_email = trim($request->manager_email);
+        $manager->manager_mobile = trim($request->manager_mobile);
         $manager->save();
 
         return redirect("admin/manager")->with("success", "Manager success fully added");
+    }
+    public function edit($id)
+    {
+        $data['getRecord'] = Manager::find($id);
+        return view('backend.manager.edit', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+
+
+        $manager = Manager::find($id);
+
+        $manager->manager_name = trim($request->manager_name);
+        $manager->manager_email = trim($request->manager_email);
+        $manager->manager_mobile = trim($request->manager_mobile);
+        $manager->save();
+
+        return redirect("admin/manager")->with("success", "Manager success fully updated");
+    }
+
+    public function delete($id)
+    {
+        $delete = Manager::find($id);
+        $delete->delete();
+
+        return redirect()->back()->with("error", "Manager successfully deleted!");
     }
 }

@@ -113,6 +113,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/manager/add', [ManagerController::class, 'add']);
 
     Route::post('admin/manager/add', [ManagerController::class, 'add_post']);
+
+    Route::get('admin/manager/edit/{id}', [ManagerController::class, 'edit']);
+
+    Route::post('admin/manager/edit/{id}', [ManagerController::class, 'update']);
+
+    Route::get('admin/manager/delete/{id}', [ManagerController::class, 'delete']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
