@@ -14,14 +14,14 @@ manager list
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right">
 
-            {{-- <form action="{{url('admin/locations_export')}}" method="get">
+            <form action="{{url('admin/manager_export')}}" method="get">
                 <input type="hidden" name="start_date" value="{{Request()->start_date}}">
 
                 <input type="hidden" name="end_date" value="{{Request()->end_date}}">
 
-                <a href="{{url('admin/locations_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date'))}}" class="btn btn-success">Excel Export</a>
+                <a href="{{url('admin/manager_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date'))}}" class="btn btn-success">Excel Export</a>
             </form>
-            <br> --}}
+            <br>
             <a href="{{url("admin/manager/add")}}" class="btn btn-primary mb-2">Add Manager</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,7 +41,7 @@ manager list
                     <form action="" method="get">
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-3">
                                     <label for="">ID</label>
                                     <input type="text" name="id" class="form-control"
                                     value="{{Request()->id}}"
@@ -64,6 +64,19 @@ manager list
                                     <input type="number"
                                     value="{{Request()->manager_mobile}}" name="manager_mobile" class="form-control"
                                     placeholder="Manager Phone">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">From Date(Start Date)</label>
+                                    <input type="date"
+                                    value="{{Request()->start_date}}" name="start_date" class="form-control"
+                                   >
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">To Date(End Date)</label>
+                                    <input type="date"
+                                    value="{{Request()->end_date}}" name="end_date" class="form-control"
+                                   >
                                 </div>
 
 
@@ -90,6 +103,7 @@ manager list
                                         <th>Manager Name</th>
                                         <th>Manager Email</th>
                                         <th>Manager Phone</th>
+                                        <th>Created At</th>
                                        <th>
                                             Actions
                                         </th>
@@ -103,8 +117,8 @@ manager list
                                         <td>{{$value->manager_email}}</td>
                                         <td>{{$value->manager_mobile }}</td>
 
-                                        {{-- <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
-                                        <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td> --}}
+                                        <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
+                                        {{-- <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td> --}}
                                         <td>
 
                                             <a href="{{url('admin/manager/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>

@@ -34,9 +34,9 @@ class Manager extends Model
             $return = $return->where('manager_mobile', "like", "%" . Request::get("manager_mobile") . "%");
         }
 
-        // if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
-        //     $return = $return->where('jobs.created_at', '>=', Request::get('start_date'))->where('jobs.created_at', '<=', Request::get('end_date'));
-        // }
+        if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
+            $return = $return->where('manager.created_at', '>=', Request::get('start_date'))->where('manager.created_at', '<=', Request::get('end_date'));
+        }
         //search box end
         $return = $return->orderBy("id", "desc")->paginate(20);
         return $return;
