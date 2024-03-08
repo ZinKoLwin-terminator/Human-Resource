@@ -107,8 +107,10 @@
                             <div class="col-sm-10">
                                 <select class="form-control" name="manager_id" value="" id="" required>
                                     <option value="">Select Manager Name</option>
-                                    <option value="1" {{($getRecord->manager_id==1)?"selected":""}}>XYZ</option>
-                                    <option value="2" {{($getRecord->manager_id==2)?"selected":""}}>ABC</option>
+
+                                   @foreach ($getManagers as $manager)
+                                   <option value="{{$manager->id}}" {{($getRecord->manager_id==$manager->id)?"selected":""}}>{{$manager->manager_name}}</option>
+                                   @endforeach
                                 </select>
                             </div>
                         </div>
@@ -118,8 +120,10 @@
                             <div class="col-sm-10">
                                 <select class="form-control" name="department_id" value="" id="" required>
                                     <option value="">Select Department Name</option>
-                                    <option value="1" {{($getRecord->department_id==1)?"selected":""}}>Developer Department</option>
-                                    <option value="2" {{($getRecord->department_id==2)?"selected":""}}>BDM Department</option>
+
+                                    @foreach ($getDepartments as $department)
+                                    <option value="1" {{($getRecord->department_id==$department->id)?"selected":""}}>{{$department->department_name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

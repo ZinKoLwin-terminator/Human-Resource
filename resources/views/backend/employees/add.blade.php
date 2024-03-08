@@ -109,8 +109,10 @@
                             <div class="col-sm-10">
                                 <select class="form-control" name="manager_id" value="{{old('manager_id')}}" id="" required>
                                     <option value="">Select Manager Name</option>
-                                    <option value="1">XYZ</option>
-                                    <option value="2">ABC</option>
+
+                                   @foreach ($getManagers as $manager)
+                                   <option value="{{$manager->id}}">{{$manager->manager_name}}</option>
+                                   @endforeach
                                 </select>
                             </div>
                         </div>
@@ -120,8 +122,10 @@
                             <div class="col-sm-10">
                                 <select class="form-control" name="department_id" value="{{old('department_id')}}" id="" required>
                                     <option value="">Select Department Name</option>
-                                    <option value="1">Developer Department</option>
-                                    <option value="2">BDM Department</option>
+
+                                   @foreach ($getDepartments as $department)
+                                   <option value="{{$department->id}}">{{$department->department_name}}</option>
+                                   @endforeach
                                 </select>
                             </div>
                         </div>

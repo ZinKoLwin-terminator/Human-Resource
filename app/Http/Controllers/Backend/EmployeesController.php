@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\Manager;
+use App\Models\Department;
 
 class EmployeesController extends Controller
 {
@@ -17,6 +19,8 @@ class EmployeesController extends Controller
 
     public function add()
     {
+        $data["getDepartments"] = Department::get();
+        $data["getManagers"] = Manager::get();
         $data["getJobs"] = Job::get();
         return view('backend.employees.add', $data);
     }
@@ -63,6 +67,8 @@ class EmployeesController extends Controller
     {
         $data["getRecord"] = User::find($id);
         $data["getJobs"] = Job::get();
+        $data["getDepartments"] = Department::get();
+        $data["getManagers"] = Manager::get();
         return view('backend.employees.edit', $data);
     }
 

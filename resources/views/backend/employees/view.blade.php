@@ -102,14 +102,14 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label">Manager Name<span style="color:red"></span></label>
                                 <div class="col-sm-10 mt-1">
-                                    {{$getRecord->manager_id}}
+                                    {{!empty($getRecord->get_manager_name_single->manager_name)?$getRecord->get_manager_name_single->manager_name:""}}
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label">Department Name<span style="color:red"></span></label>
                                 <div class="col-sm-10 mt-1">
-                                    {{$getRecord->department_id}}
+                                    {{!empty($getRecord->get_department_name_single->department_name)?$getRecord->get_department_name_single->department_name:""}}
                                 </div>
                             </div>
 
