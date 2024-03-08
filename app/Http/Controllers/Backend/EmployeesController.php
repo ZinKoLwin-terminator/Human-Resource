@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Job;
 use App\Models\Manager;
 use App\Models\Department;
+use Illuminate\Support\Str;
 
 class EmployeesController extends Controller
 {
@@ -52,6 +53,14 @@ class EmployeesController extends Controller
         $user->manager_id = trim($request->manager_id);
         $user->department_id  = trim($request->department_id);
         $user->is_role = 0; //0=employee
+
+        if (!empty($request->file('profile_image'))) {
+            $file = $request->file("profile_image");
+            $randomStr = Str::random(30);
+            $filename = $randomStr . "." . $file->getClientOriginalExtension();
+            $file->move('upload/', $filename);
+            $user->profile_image = $filename;
+        }
         $user->save();
 
         return redirect('admin/employees')->with('success', 'Employees successfully register.');
@@ -99,6 +108,19 @@ class EmployeesController extends Controller
         $user->manager_id = trim($request->manager_id);
         $user->department_id  = trim($request->department_id);
         $user->is_role = 0; //0=employee
+
+        if (!empty($request->file('profile_image'))) {
+
+            if (!empty($user->profile_image) && file_exists('upload/' . $user->profile_image)) {
+                unlink('upload/' . $user->profile_image);
+            }
+
+            $file = $request->file("profile_image");
+            $randomStr = Str::random(30);
+            $filename = $randomStr . "." . $file->getClientOriginalExtension();
+            $file->move('upload/', $filename);
+            $user->profile_image = $filename;
+        }
         $user->save();
 
         return redirect('admin/employees')->with('success', 'Employees successfully updated.');

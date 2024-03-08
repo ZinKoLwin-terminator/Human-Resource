@@ -68,6 +68,14 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Profile Image <span style="color:red"></span></label>
+                            <div class="col-sm-10">
+                                <input type="file" name="profile_image" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Hire Date <span style="color:red">*</span></label>
                             <div class="col-sm-10">
                                 <input type="date" name="hire_date" value="{{old('hire_date')}}" class="form-control" required placeholder="Enter Hire Date">

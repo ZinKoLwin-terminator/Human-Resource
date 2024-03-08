@@ -68,6 +68,18 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Profile Image <span style="color:red"></span></label>
+                            <div class="col-sm-10">
+                                <input type="file" name="profile_image" value="{{$getRecord->profile_image}}" class="form-control">
+                                @if ($getRecord->profile_image)
+                                @if (file_exists('upload/'.$getRecord->profile_image))
+                                  <img src="{{url("upload/".$getRecord->profile_image)}}" alt="" style="height:80px;width:80px;border-radius: 50%">
+                                @endif
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Hire Date <span style="color:red">*</span></label>
                             <div class="col-sm-10">
                                 <input type="date" name="hire_date" value="{{$getRecord->hire_date}}" class="form-control" required placeholder="Enter Hire Date">
