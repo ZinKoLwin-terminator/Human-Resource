@@ -81,8 +81,10 @@
                             <div class="col-sm-10">
                                 <select class="form-control" name="department_id" id="">
                                     <option value=""> Select Department Name</option>
-                                    <option value="1" {{($getRecord->department_id==1)?"selected":""}}>Developer Department</option>
-                                    <option value="2" {{($getRecord->department_id==2)?"selected":""}}>BDM Department</option>
+
+                                    @foreach ($getDepartments as $department)
+                                    <option value="{{$department->id}}" {{($getRecord->department_id==$department->id)?"selected":""}}>{{$department->department_name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

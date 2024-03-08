@@ -73,7 +73,7 @@ class User extends Authenticatable
             $return = $return->where('email', "like", "%" . Request::get("email") . "%");
         }
         //search box end
-        $return = $return->orderBy("id", "desc")->paginate(5);
+        $return = $return->orderBy("id", "desc")->paginate(20);
         return $return;
     }
 

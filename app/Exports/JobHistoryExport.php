@@ -25,11 +25,7 @@ class JobHistoryExport implements FromCollection, ShouldAutoSize, WithMapping, W
         $startDate = date("d-m-Y", strtotime($user->start_date));
         $endDate = date("d-m-Y", strtotime($user->end_date));
         $createdAtFormat = date('d-m-Y H:i A', strtotime($user->created_at));
-        if ($user->department_id == 1) {
-            $department = 'Developer Department';
-        } else {
-            $department = 'BND Department';
-        }
+
 
 
         return [
@@ -38,7 +34,7 @@ class JobHistoryExport implements FromCollection, ShouldAutoSize, WithMapping, W
             $startDate,
             $endDate,
             $user->job_title,
-            $department,
+            $user->department_name,
             $createdAtFormat,
 
 
@@ -52,7 +48,7 @@ class JobHistoryExport implements FromCollection, ShouldAutoSize, WithMapping, W
             'Start Date',
             'End Date',
             'Job Title',
-            'Department ID',
+            'Department Name',
             'Created At'
         ];
     }
