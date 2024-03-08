@@ -131,6 +131,8 @@ Route::group(['middleware' => 'admin'], function () {
     //PayRoll
     Route::get('admin/payroll', [PayrollController::class, 'index']);
     Route::get('admin/payroll/add', [PayrollController::class, 'add']);
+
+    Route::post('admin/payroll/add', [PayrollController::class, 'add_post']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
