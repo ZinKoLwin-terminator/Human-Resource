@@ -41,39 +41,39 @@
                     <form action="" method="get">
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="">ID</label>
                                     <input type="text" name="id" class="form-control"
                                     value="{{Request()->id}}"
                                     placeholder="ID">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="">Department Name</label>
                                     <input type="text"
                                     value="{{Request()->department_name}}" name="department_name" class="form-control"
                                     placeholder="Department Name">
                                 </div>
-                                {{-- <div class="form-group col-md-3">
+                                <div class="form-group col-md-3">
                                     <label for="">Manager Name</label>
                                     <input type="text"
                                     value="{{Request()->manager_name}}" name="manager_name" class="form-control"
                                     placeholder="Manager Name">
-                                </div> --}}
+                                </div>
 
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="">Location Name</label>
                                     <input type="text"
                                     value="{{Request()->street_address}}" name="street_address" class="form-control"
                                     placeholder="Location Name">
                                 </div>
 
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="">From Date(Start Date)</label>
                                     <input type="date"
                                     value="{{Request()->start_date}}" name="start_date" class="form-control"
                                    >
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="">To Date(End Date)</label>
                                     <input type="date"
                                     value="{{Request()->end_date}}" name="end_date" class="form-control"
@@ -118,11 +118,7 @@
                                         <td>{{$value->id}}</td>
                                         <td>{{$value->department_name}}</td>
                                         <td>
-                                            @if ($value->manager_id==1)
-                                                Mg Mg
-                                            @else
-                                                Zaw Zaw
-                                            @endif
+                                           {{$value->get_manager_name_single->manager_name}}
                                         </td>
                                         <td>{{$value->street_address}}</td>
 

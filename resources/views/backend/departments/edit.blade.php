@@ -51,9 +51,10 @@
                                 <select class="form-control"
                                 name="manager_id" id="">
                              <option value="">Select Manager Name</option>
-                            <option {{($getRecord->manager_id==1)?'selected':''}} value="1" >Mg Mg</option>
-                            <option  {{($getRecord->manager_id==2)?"selected":""}} value="2">Zaw Zaw</option>
 
+                           @foreach ($getManagers as $manager)
+                           <option {{($getRecord->manager_id==$manager->id)?'selected':''}} value="{{$manager->id}}" >{{$manager->manager_name}}</option>
+                           @endforeach
                             {{-- @foreach ($getRegions as $region)
                                 <option value="{{$region->id}}">{{$region->region_name}}</option>
                             @endforeach --}}

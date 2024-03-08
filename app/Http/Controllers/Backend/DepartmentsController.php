@@ -8,18 +8,21 @@ use App\Models\Department;
 use App\Models\Location;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DepartmentsExport;
+use App\Models\Manager;
 
 class DepartmentsController extends Controller
 {
     public function index(Request $request)
     {
         $data['getRecord'] = Department::getRecord($request);
+
         return view('backend.departments.list', $data);
     }
 
     public function add(Request $request)
     {
         $data['getLocations'] = Location::get();
+        $data["getManagers"] = Manager::get();
         return view('backend.departments.add', $data);
     }
 
@@ -45,6 +48,7 @@ class DepartmentsController extends Controller
     public function edit($id)
     {
         $data['getLocations'] = Location::get();
+        $data["getManagers"] = Manager::get();
         $data['getRecord'] = Department::find($id);
         return view('backend.departments.edit', $data);
     }

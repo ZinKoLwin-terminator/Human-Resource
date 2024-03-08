@@ -17,7 +17,7 @@ class Department extends Model
 
         //
 
-        $return = self::select("departments.*", 'locations.street_address')->join('locations', 'locations.id', '=', 'departments.locations_id')->orderBy('id', 'desc');
+        $return = self::select("departments.*", 'locations.street_address', 'manager.manager_name')->join('locations', 'locations.id', '=', 'departments.locations_id')->join('manager', 'manager.id', '=', 'departments.manager_id')->orderBy('id', 'desc');
         //search box start
 
 
@@ -30,6 +30,9 @@ class Department extends Model
             $return = $return->where("departments.department_name", "like", "%" . Request::get("department_name") . "%");
         }
 
+        if (!empty(Request::get('manager_name'))) {
+            $return = $return->where("manager.manager_name", "like", "%" . Request::get("manager_name") . "%");
+        }
         if (!empty(Request::get('street_address'))) {
             $return = $return->where('locations.street_address', "like", "%" . Request::get("street_address") . "%");
         }
@@ -49,5 +52,10 @@ class Department extends Model
     public function location()
     {
         return $this->belongsTo(Location::class, "locations_id");
+    }
+
+    public function get_manager_name_single()
+    {
+        return $this->belongsTo(Manager::class, "manager_id");
     }
 }

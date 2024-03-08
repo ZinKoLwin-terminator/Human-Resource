@@ -23,11 +23,7 @@ class DepartmentsExport implements FromCollection, ShouldAutoSize, WithMapping, 
 
     public function map($user): array
     {
-        if ($user->manager_id == 1) {
-            $manager_id = "Mg Mg";
-        } else {
-            $manager_id = "Zaw Zaw";
-        }
+
 
         $createdAtFormat = date('d-m-Y H:i A', strtotime($user->created_at));
         $updatedAtFormat = date('d-m-Y H:i A', strtotime($user->updated_at));
@@ -35,7 +31,7 @@ class DepartmentsExport implements FromCollection, ShouldAutoSize, WithMapping, 
             ++$this->index,
             $user->id,
             $user->department_name,
-            $manager_id,
+            $user->manager_name,
             $user->street_address,
             $createdAtFormat,
             $updatedAtFormat
