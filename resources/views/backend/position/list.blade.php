@@ -12,15 +12,8 @@
             <h1>Positions</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right">
+            <a href="{{url('admin/position_export')}}" class="btn btn-success">Excel Export</a>
 
-            {{-- <form action="{{url('admin/locations_export')}}" method="get">
-                <input type="hidden" name="start_date" value="{{Request()->start_date}}">
-
-                <input type="hidden" name="end_date" value="{{Request()->end_date}}">
-
-                <a href="{{url('admin/locations_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date'))}}" class="btn btn-success">Excel Export</a>
-            </form>
-            <br> --}}
             <a href="{{url("admin/position/add")}}" class="btn btn-primary mb-2">Add Position</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,7 +26,7 @@
         <div class="container-fluid">
            <div class="row">
                 <section class="col-md-12">
-                   {{-- <div class="card">
+                   <div class="card">
                     <div class="card-header">
                        <h3 class="card-title">Search Location</h3>
                     </div>
@@ -47,39 +40,34 @@
                                     placeholder="ID">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Street Address</label>
+                                    <label for="">Position Name</label>
                                     <input type="text"
-                                    value="{{Request()->street_address}}" name="street_address" class="form-control"
-                                    placeholder="Street Address">
+                                    value="{{Request()->position_name}}" name="position_name" class="form-control"
+                                    placeholder="Position Name">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">Postal Code</label>
+                                    <label for="">Daily Rate</label>
                                     <input type="text"
-                                    value="{{Request()->postal_code}}" name="postal_code" class="form-control"
-                                    placeholder="Postal Code">
+                                    value="{{Request()->daily_rate}}" name="daily_rate" class="form-control"
+                                    placeholder="Daily Rate">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">City</label>
+                                    <label for="">Monthly Rate</label>
                                     <input type="text"
-                                    value="{{Request()->city}}" name="city" class="form-control"
-                                    placeholder="City">
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="">State Provice</label>
-                                    <input type="text"
-                                    value="{{Request()->state_provice}}" name="state_provice" class="form-control"
-                                    placeholder="State Provice">
+                                    value="{{Request()->monthly_rate}}" name="monthly_rate" class="form-control"
+                                    placeholder="Monthly Rate">
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="">Countries Name</label>
+                                    <label for="">Working Days Per Month</label>
                                     <input type="text"
-                                    value="{{Request()->country_name}}" name="country_name" class="form-control"
-                                    placeholder="Countries Name">
+                                    value="{{Request()->working_days_per_month}}" name="working_days_per_month" class="form-control"
+                                    placeholder="Working Days Per Month">
                                 </div>
 
-                                <div class="form-group col-md-3">
+
+
+                                {{-- <div class="form-group col-md-3">
                                     <label for="">Created At</label>
                                     <input type="date"
                                     value="{{Request()->created_at}}" name="created_at" class="form-control"
@@ -104,15 +92,15 @@
                                     <input type="date"
                                     value="{{Request()->end_date}}" name="end_date" class="form-control"
                                    >
-                                </div>
+                                </div> --}}
                                 <div class="form-group col-md-2">
                                     <button type="submit"   class="btn btn-primary" style="margin-top: 30px;">Search</button>
-                                    <a href="{{url("admin/locations")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
+                                    <a href="{{url("admin/position")}}" class="btn btn-success" style="margin-top:30px;">Reset</a>
                                 </div>
                             </div>
                         </div>
                     </form>
-                   </div> --}}
+                   </div>
                     @include('_messages')
                     <div class="card">
                         <div class="card-header">
