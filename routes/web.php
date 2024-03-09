@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\DepartmentsController;
 use App\Http\Controllers\Backend\ManagerController;
 use App\Http\Controllers\Backend\MyAccountController;
 use App\Http\Controllers\Backend\PayrollController;
+use App\Http\Controllers\Backend\PositionController;
 
 
 // Route::get('/', function () {
@@ -131,13 +132,18 @@ Route::group(['middleware' => 'admin'], function () {
     //PayRoll
     Route::get('admin/payroll', [PayrollController::class, 'index']);
     Route::get('admin/payroll/add', [PayrollController::class, 'add']);
-
     Route::post('admin/payroll/add', [PayrollController::class, 'add_post']);
     Route::get('admin/payroll/view/{id}', [PayrollController::class, 'view']);
     Route::get('admin/payroll/edit/{id}', [PayrollController::class, 'edit']);
     Route::post('admin/payroll/edit/{id}', [PayrollController::class, 'update']);
     Route::get('admin/payroll/delete/{id}', [PayrollController::class, 'delete']);
     Route::get('admin/payroll_export', [PayrollController::class, 'payroll_export']);
+
+    //Postion
+    Route::get('admin/position', [PositionController::class, 'index']);
+    Route::get('admin/position/add', [PositionController::class, 'add']);
+
+    Route::post('admin/position/add', [PositionController::class, 'add_post']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
