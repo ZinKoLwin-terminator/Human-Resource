@@ -137,6 +137,19 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Position Name<span style="color:red">*</span></label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="position_id" value="{{old('position_id')}}" id="" required>
+                                    <option value="">Select Position Name</option>
+
+                                   @foreach ($getPositions as $position)
+                                   <option value="{{$position->id}}">{{$position->position_name}}</option>
+                                   @endforeach
+                                </select>
+                            </div>
+                        </div>
                        </div>
 
                        <div class="card-footer">

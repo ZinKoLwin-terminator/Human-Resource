@@ -9,6 +9,7 @@ use App\Models\Job;
 use App\Models\Manager;
 use App\Models\Department;
 use Illuminate\Support\Str;
+use App\Models\Position;
 
 class EmployeesController extends Controller
 {
@@ -22,6 +23,7 @@ class EmployeesController extends Controller
     {
         $data["getDepartments"] = Department::get();
         $data["getManagers"] = Manager::get();
+        $data["getPositions"] = Position::get();
         $data["getJobs"] = Job::get();
         return view('backend.employees.add', $data);
     }
@@ -38,6 +40,7 @@ class EmployeesController extends Controller
             'commission_pct' => 'required',
             'manager_id' => 'required',
             'department_id' => 'required',
+            'position_id' => 'required',
 
         ]);
 
@@ -52,6 +55,7 @@ class EmployeesController extends Controller
         $user->commission_pct = trim($request->commission_pct);
         $user->manager_id = trim($request->manager_id);
         $user->department_id  = trim($request->department_id);
+        $user->position_id = trim($request->position_id);
         $user->is_role = 0; //0=employee
 
         if (!empty($request->file('profile_image'))) {
@@ -78,6 +82,7 @@ class EmployeesController extends Controller
         $data["getJobs"] = Job::get();
         $data["getDepartments"] = Department::get();
         $data["getManagers"] = Manager::get();
+        $data["getPositions"] = Position::get();
         return view('backend.employees.edit', $data);
     }
 
@@ -93,6 +98,7 @@ class EmployeesController extends Controller
             'commission_pct' => 'required',
             'manager_id' => 'required',
             'department_id' => 'required',
+            'position_id' => 'required',
 
         ]);
 
@@ -107,6 +113,7 @@ class EmployeesController extends Controller
         $user->commission_pct = trim($request->commission_pct);
         $user->manager_id = trim($request->manager_id);
         $user->department_id  = trim($request->department_id);
+        $user->position_id = trim($request->position_id);
         $user->is_role = 0; //0=employee
 
         if (!empty($request->file('profile_image'))) {
