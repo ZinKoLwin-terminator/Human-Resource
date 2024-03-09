@@ -146,8 +146,8 @@
                                         <td>{{$value->monthly_rate}}</td>
                                         <td>{{$value->working_days_per_month}}</td>
 
-                                        <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
-                                        <td>{{date('d-m-Y H:i A',strtotime($value->updated_at))}}</td>
+                                        <td>{{date('d-m-Y H:s:i',strtotime($value->created_at))}}</td>
+                                        <td>{{date('d-m-Y H:s:i',strtotime($value->updated_at))}}</td>
 
                                         <td>
 
