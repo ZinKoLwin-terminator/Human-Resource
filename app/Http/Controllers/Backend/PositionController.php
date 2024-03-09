@@ -38,4 +38,38 @@ class PositionController extends Controller
 
         return redirect("admin/position")->with("success", "Position successfully added");
     }
+
+    public function edit($id)
+    {
+        $data["getRecord"] = Position::find($id);
+        return view('backend.position.edit', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+
+        $position = request()->validate([
+            "position_name" => "required",
+            "daily_rate" => "required",
+            "monthly_rate" => "required",
+            "working_days_per_month" => "required"
+        ]);
+
+        $position = Position::find($id);
+        $position->position_name = trim($request->position_name);
+        $position->daily_rate = trim($request->daily_rate);
+        $position->monthly_rate = trim($request->monthly_rate);
+        $position->working_days_per_month = trim($request->working_days_per_month);
+        $position->save();
+
+        return redirect("admin/position")->with("success", "Position successfully updated");
+    }
+
+    public function delete($id)
+    {
+        $delete = Position::find($id);
+        $delete->delete();
+
+        return redirect()->back()->with("error", "Position success fully deleted!");
+    }
 }
