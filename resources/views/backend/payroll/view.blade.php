@@ -42,6 +42,8 @@
                                 <label for="" class="col-sm-2 col-form-label">Employee Name<span style="color:red">*</span></label>
                                 <div class="col-sm-10 mt-1">
                                     {{!empty($getRecord->get_employee_name_single->name)?$getRecord->get_employee_name_single->name:""}} {{!empty($getRecord->get_employee_name_single->last_name)?$getRecord->get_employee_name_single->last_name:""}}
+
+
                                 </div>
                             </div>
 

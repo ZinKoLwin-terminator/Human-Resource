@@ -102,7 +102,8 @@
                                     @forelse ($getRecord as $value)
                                    <tr>
                                     <td>{{$value->id}}</td>
-                                    <td>{{!empty($value->get_employee_name_single->name)?$value->get_employee_name_single->name   :""}} {{!empty($value->get_employee_name_single->last_name)?$value->get_employee_name_single->last_name :""}}</td>
+                                    {{-- <td>{{!empty($value->get_employee_name_single->name)?$value->get_employee_name_single->name   :""}} {{!empty($value->get_employee_name_single->last_name)?$value->get_employee_name_single->last_name :""}}</td> --}}
+                                    <td>{{!empty($value->name)?$value->name:""}} {{!empty($value->last_name)?$value->last_name:""}}</td>
                                     <td>{{$value->number_of_day_work}}</td>
                                     <td>{{$value->bonus}}</td>
                                     <td>{{$value->overtime}}</td>
@@ -112,6 +113,7 @@
                                     <td>
 
                                         <a href="{{url('admin/payroll/view/'.$value->id)}}" class="btn btn-info">View</a>
+                                        <a href="{{url('admin/payroll/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
                                         {{-- <a href="{{url('admin/job_history/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> --}}
                                     </td>
 

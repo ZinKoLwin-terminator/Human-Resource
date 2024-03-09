@@ -12,8 +12,9 @@ class PayRoll extends Model
 
     static public function getRecord($request)
     {
-        $return = self::select("payroll.*")
-            ->orderBy("id", "desc")
+        $return = self::select("payroll.*", "users.name", "users.last_name")
+            ->join("users", "users.id", "=", "payroll.employee_id")
+            ->orderBy("payroll.id", "desc")
             ->paginate(10);
 
         return $return;
