@@ -12,8 +12,8 @@ class PayrollController extends Controller
     public function index(Request $request)
     {
 
-        // $data['getRecord'] = PayRoll->getRecord($request);
-        return view('backend.payroll.list');
+        $data['getRecord'] = PayRoll::getRecord($request);
+        return view('backend.payroll.list', $data);
     }
 
     public function add(Request $request)
@@ -62,5 +62,11 @@ class PayrollController extends Controller
         $payroll->save();
 
         return redirect("admin/payroll")->with("success", "PayRoll successfully saved");
+    }
+
+    public function view($id)
+    {
+        $data["getRecord"] = PayRoll::find($id);
+        return view('backend.payroll.view', $data);
     }
 }

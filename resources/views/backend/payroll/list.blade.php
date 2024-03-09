@@ -83,17 +83,16 @@
                             </h3>
                         </div>
                         <div class="card-body p-0" >
-                            {{-- <table class="table table-striped">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Employee Name <br>(employee_id)</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Job Name <br>(job_id)</th>
-                                        <th>Department Name <br>
-                                            (department_id)</th>
-                                        <th>Created At</th>
+                                        <th>Employee Name</th>
+                                        <th>Number of Day Work</th>
+                                        <th>Bonus</th>
+                                        <th>Overtime</th>
+
+                                        {{-- <th>Created At</th> --}}
                                        <th>
                                             Actions
                                         </th>
@@ -103,18 +102,17 @@
                                     @forelse ($getRecord as $value)
                                    <tr>
                                     <td>{{$value->id}}</td>
-                                    <td>{{!empty($value->Employee->name)?$value->Employee->name:""}} {{!empty($value->Employee->last_name)?$value->Employee->last_name:""}}</td>
-                                    <td>{{date('d-m-Y',strtotime($value->start_date))}}</td>
-                                    <td>{{date('d-m-Y',strtotime($value->end_date))}}</td>
-                                    <td>{{!empty($value->Job->job_title)?$value->Job->job_title:""}}</td>
-                                    <td> {{(!empty($value->get_department_name_single->department_name))?$value->get_department_name_single->department_name:""}}</td>
-                                    <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td>
+                                    <td>{{!empty($value->get_employee_name_single->name)?$value->get_employee_name_single->name   :""}} {{!empty($value->get_employee_name_single->last_name)?$value->get_employee_name_single->last_name :""}}</td>
+                                    <td>{{$value->number_of_day_work}}</td>
+                                    <td>{{$value->bonus}}</td>
+                                    <td>{{$value->overtime}}</td>
+                                    {{-- <td>{{date('d-m-Y H:i A',strtotime($value->created_at))}}</td> --}}
 
 
                                     <td>
 
-                                        <a href="{{url('admin/job_history/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                                        <a href="{{url('admin/job_history/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                                        <a href="{{url('admin/payroll/view/'.$value->id)}}" class="btn btn-info">View</a>
+                                        {{-- <a href="{{url('admin/job_history/delete/'.$value->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> --}}
                                     </td>
 
                                    </tr>
@@ -129,7 +127,7 @@
 
                             <div style="padding:10px;float:right;">
                                 {{$getRecord->links()}}
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </section>
