@@ -105,6 +105,7 @@
                                            @if (file_exists('upload/'.$value->profile_image))
                                              <img src="{{url("upload/".$value->profile_image)}}" alt="" style="height:60px;width:60px;border-radius: 50%">
                                            @endif
+                                           <a class="btn btn-danger" href="{{url("admin/employees/image_delete/".$value->id)}}" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
                                            @endif
                                         </td>
                                         <td>{{!empty($value->is_role)?'HR':'Employees'}}</td>

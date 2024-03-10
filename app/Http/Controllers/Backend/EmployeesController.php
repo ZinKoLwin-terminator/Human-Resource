@@ -140,4 +140,12 @@ class EmployeesController extends Controller
 
         return redirect()->back()->with('error', 'Record successfully deleted');
     }
+
+    public function image_delete($id, Request $request)
+    {
+        $delete_record = User::find($id);
+        $delete_record->profile_image = $request->profile_image;
+        $delete_record->save();
+        return redirect()->back()->with("error", "Record Image Delete");
+    }
 }

@@ -40,6 +40,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/employees/edit/{id}', [EmployeesController::class, 'edit']);
     Route::post('admin/employees/edit/{id}', [EmployeesController::class, 'update']);
     Route::get('admin/employees/delete/{id}', [EmployeesController::class, 'delete']);
+    Route::get("admin/employees/image_delete/{id}", [EmployeesController::class, "image_delete"]);
 
     //jobs
     Route::get('admin/jobs', [JobsController::class, 'index']);
