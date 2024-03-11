@@ -153,6 +153,12 @@ Route::group(['middleware' => 'admin'], function () {
 
 Route::group(['middleware' => 'employee'], function () {
     Route::get("employee/dashboard", [DashboardController::class, 'dashboard']);
+
+
+    //my account
+
+    Route::get('employee/my_account', [MyAccountController::class, 'employee_my_account']);
+    Route::post('employee/my_account/update', [MyAccountController::class, 'employee_my_account_update']);
 });
 
 

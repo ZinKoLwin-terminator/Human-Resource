@@ -34,7 +34,7 @@
                                 My Account
                             </h3>
                         </div>
-                        <form action="{{url("admin/my_account/update")}}" class="form-horizontal" method="POST"  enctype="multipart/form-data">
+                        <form action="{{url("employee/my_account/update")}}" class="form-horizontal" method="POST"  enctype="multipart/form-data">
                             {{ csrf_field() }}
                         <div class="card-body">
 
@@ -84,7 +84,7 @@
 
                        <div class="card-footer">
 
-                        <a href="{{url("admin/my_account")}}" class="btn btn-default ">Back</a>
+                        <a href="{{url("employee/my_account")}}" class="btn btn-default ">Back</a>
                         <button type="submit" class="btn btn-primary float-right">Update</button>
                        </div>
                     </form>
