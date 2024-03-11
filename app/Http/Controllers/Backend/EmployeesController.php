@@ -34,6 +34,7 @@ class EmployeesController extends Controller
         $user = request()->validate([
             'name' => 'required',
             'email' => 'required|unique:users',
+            'password' => 'required',
             'hire_date' => 'required',
             'job_id' => 'required',
             'salary' => 'required',
@@ -48,6 +49,7 @@ class EmployeesController extends Controller
         $user->name = trim($request->name);
         $user->last_name = trim($request->last_name);
         $user->email = trim($request->email);
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
         $user->phone_number = trim($request->phone_number);
         $user->hire_date = trim($request->hire_date);
         $user->job_id = trim($request->job_id);
@@ -115,6 +117,10 @@ class EmployeesController extends Controller
         $user->department_id  = trim($request->department_id);
         $user->position_id = trim($request->position_id);
         $user->is_role = 0; //0=employee
+
+        if (!empty($request->password)) {
+            $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        }
 
         if (!empty($request->file('profile_image'))) {
 

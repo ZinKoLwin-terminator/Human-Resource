@@ -60,6 +60,16 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Password<span style="color:red"></span></label>
+                            <div class="col-sm-10">
+                                <input type="password" name="password"  class="form-control"  placeholder="Enter Password">
+                                (Leave blank if you are not changing the password)
+                                <span style="color:red">{{$errors->first('password')}}</span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Phone Number <span style="color:red"></span></label>
                             <div class="col-sm-10">
                                 <input type="number" name="phone_number" value="{{$getRecord->phone_number}}" class="form-control"  placeholder="Enter Phone Number">
