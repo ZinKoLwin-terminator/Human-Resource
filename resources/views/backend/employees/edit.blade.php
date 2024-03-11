@@ -59,6 +59,8 @@
                             </div>
                         </div>
 
+
+
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Password<span style="color:red"></span></label>
                             <div class="col-sm-10">
@@ -144,7 +146,7 @@
                                     <option value="">Select Department Name</option>
 
                                     @foreach ($getDepartments as $department)
-                                    <option value="1" {{($getRecord->department_id==$department->id)?"selected":""}}>{{$department->department_name}}</option>
+                                    <option value="{{$department->id}}" {{($getRecord->department_id==$department->id)?"selected":""}}>{{$department->department_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -160,6 +162,18 @@
                                    <option value="{{$position->id}}" {{($getRecord->position_id==$position->id)?"selected":""}}>{{$position->position_name}}</option>
                                    @endforeach
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Interview<span style="color:red"></span></label>
+                            <div class="col-sm-10">
+                               <select name="interview" required id="" class="form-control">
+                                <option value="">Select Interview</option>
+                               <option value="0" {{($getRecord->interview==0)?"selected":""}}>Cancel</option>
+                               <option value="1" {{($getRecord->interview==1)?"selected":""}}>Pending</option>
+                               <option value="2" {{($getRecord->interview==2)?"selected":""}}>Completed</option>
+                               </select>
                             </div>
                         </div>
 

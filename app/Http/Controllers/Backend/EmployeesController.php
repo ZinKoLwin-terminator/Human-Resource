@@ -34,6 +34,7 @@ class EmployeesController extends Controller
         $user = request()->validate([
             'name' => 'required',
             'email' => 'required|unique:users',
+            'interview' => 'required',
             'password' => 'required',
             'hire_date' => 'required',
             'job_id' => 'required',
@@ -49,6 +50,7 @@ class EmployeesController extends Controller
         $user->name = trim($request->name);
         $user->last_name = trim($request->last_name);
         $user->email = trim($request->email);
+        $user->interview = trim($request->interview);
         $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
         $user->phone_number = trim($request->phone_number);
         $user->hire_date = trim($request->hire_date);
@@ -116,6 +118,7 @@ class EmployeesController extends Controller
         $user->manager_id = trim($request->manager_id);
         $user->department_id  = trim($request->department_id);
         $user->position_id = trim($request->position_id);
+        $user->interview = trim($request->interview);
         $user->is_role = 0; //0=employee
 
         if (!empty($request->password)) {

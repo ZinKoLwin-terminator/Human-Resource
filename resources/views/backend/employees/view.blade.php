@@ -68,6 +68,8 @@
                                 </div>
                             </div>
 
+
+
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label">Profile Image<span style="color:red"></span></label>
                                 <div class="col-sm-10 mt-1">
@@ -129,6 +131,20 @@
                                 <label for="" class="col-sm-2 col-form-label">Position Name<span style="color:red"></span></label>
                                 <div class="col-sm-10 mt-1">
                                     {{!empty($getRecord->get_position_name_single->position_name)?$getRecord->get_position_name_single->position_name:""}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 col-form-label">Interview<span style="color:red"></span></label>
+                                <div class="col-sm-10 mt-1">
+                                    @if ($getRecord->interview==0)
+                                        Canceled
+
+                                    @elseif ($getRecord->interview==1)
+                                    Pending
+                                    @else
+                                        Completed
+                                    @endif
                                 </div>
                             </div>
 

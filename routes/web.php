@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ManagerController;
 use App\Http\Controllers\Backend\MyAccountController;
 use App\Http\Controllers\Backend\PayrollController;
 use App\Http\Controllers\Backend\PositionController;
+use App\Http\Controllers\Backend\InterviewController;
 
 
 // Route::get('/', function () {
@@ -159,6 +160,7 @@ Route::group(['middleware' => 'employee'], function () {
 
     Route::get('employee/my_account', [MyAccountController::class, 'employee_my_account']);
     Route::post('employee/my_account/update', [MyAccountController::class, 'employee_my_account_update']);
+    Route::get("admin/interview", [InterviewController::class, 'interview']);
 });
 
 

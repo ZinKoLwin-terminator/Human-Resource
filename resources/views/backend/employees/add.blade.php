@@ -51,6 +51,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Email<span style="color:red">*</span></label>
                             <div class="col-sm-10">
@@ -145,6 +146,19 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Interview<span style="color:red"></span></label>
+                            <div class="col-sm-10">
+                               <select name="interview" id="" class="form-control">
+                                <option value="">Select Interview</option>
+                               <option value="0">Cancel</option>
+                               <option value="1">Pending</option>
+                               <option value="2">Completed</option>
+                               </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Position Name<span style="color:red">*</span></label>
