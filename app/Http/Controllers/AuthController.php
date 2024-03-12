@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ForgotPasswordMail;
 
 class AuthController extends Controller
 {
@@ -38,7 +41,7 @@ class AuthController extends Controller
         $user = new User;
         $user->name = trim($request->name);
         $user->email = trim($request->email);
-        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        $user->password = Hash::make($request->password);
         $user->remember_token = Str::random(50);
         $user->save();
 
@@ -75,5 +78,24 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect(url('/'));
+    }
+
+    public function forgot_password_post(Request $request)
+    {
+        // @dd($request->all());
+
+        $count = User::where('email', '=', $request->email)->count();
+
+        if ($count > 0) {
+            $user = User::where("email", "=", $request->email)->first();
+            $random_password = rand(111111, 999999);
+            $user->password = Hash::make($random_password);
+            $user->save();
+            $user->random_password = $random_password;
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+            return redirect()->back()->with("success", "Password ahs been send email");
+        } else {
+            return redirect()->back()->with("error", "Email not found!");
+        }
     }
 }
